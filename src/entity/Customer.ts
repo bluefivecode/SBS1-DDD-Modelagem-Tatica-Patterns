@@ -3,7 +3,7 @@ class Customer {
     _id: string;
     _name: string = "";
     _address: string = "";
-    _active: boolean = true;
+    _active: boolean = false;
 
     constructor(id: string, name: string) {
         this._id = id;
@@ -26,6 +26,9 @@ class Customer {
     }
 
     activate() {
+        if(this._address.length === 0){
+            throw new Error("Address is mandatory to activate a Customer"); 
+        }
         this._active = true;
     }
 
