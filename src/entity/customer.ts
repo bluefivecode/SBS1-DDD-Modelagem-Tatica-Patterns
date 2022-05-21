@@ -2,10 +2,10 @@ import Address from "./address";
 
 export default class Customer {
  
-    _id: string;
-    _name: string = "";
-    _address!: Address
-    _active: boolean = false;
+    public _id: string;
+    public _name: string = "";
+    public _address!: Address
+    public _active: boolean = false;
 
     constructor(id: string, name: string) {
         this._id = id;
@@ -13,12 +13,22 @@ export default class Customer {
         this.validate();
     }
 
+
+    get name() {    
+        return this._name;
+    }
+
     validate() {
+
+        if(this._id.length === 0) {
+            throw new Error("Customer id is required");
+        }
+
         if (this._name.length ===0)     
             throw new Error("Customer name is required");
 
-        if (this._address === undefined)
-            throw new Error("Customer address is required");
+        // if (this._address === undefined)
+        //     throw new Error("Customer address is required");
     }
 
 
