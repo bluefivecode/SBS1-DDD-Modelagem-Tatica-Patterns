@@ -19,9 +19,13 @@ export default class Order{
         return this._items.reduce((acc, item) => acc + item._price, 0);
     }
 
-    validate(){
+    validate(): boolean{
         if(this._id.length === 0){
             throw new Error("id is required");
         }
+        if(this._customerId.length === 0){
+            throw new Error("customerId is required");
+        }
+        return true;
     }
 }
