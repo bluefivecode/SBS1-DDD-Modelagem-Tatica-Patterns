@@ -18,6 +18,14 @@ export default class Customer {
         return this._name;
     }
 
+    set address(address: Address) {
+        this._address = address;
+    }
+
+    isActive(): boolean {
+        return this._active;
+    }
+
     validate() {
 
         if(this._id.length === 0) {
@@ -26,9 +34,6 @@ export default class Customer {
 
         if (this._name.length ===0)     
             throw new Error("Customer name is required");
-
-        // if (this._address === undefined)
-        //     throw new Error("Customer address is required");
     }
 
 
@@ -46,10 +51,6 @@ export default class Customer {
 
     deactivate() {
         this._active = false;
-    }
-
-    set address(address: Address) {
-        this._address = address;
     }
 
 }
