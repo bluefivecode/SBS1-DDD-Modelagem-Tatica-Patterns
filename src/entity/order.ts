@@ -26,6 +26,9 @@ export default class Order{
         if(this._customerId.length === 0){
             throw new Error("customerId is required");
         }
+        if(this._items.length === 0){
+            throw new Error("Item qtd must be greater than 0");
+        }
         return true;
     }
 }
