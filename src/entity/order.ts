@@ -15,9 +15,6 @@ export default class Order{
         this.validate();
     }
 
-    total(): number{
-        return this._items.reduce((acc, item) => acc + item.price, 0);
-    }
 
     validate(): boolean{
         if(this._id.length === 0){
@@ -34,5 +31,9 @@ export default class Order{
         }
         
         return true;
+    }
+
+    total(): number{
+        return this._items.reduce((acc, item) => acc + item.price, 0);
     }
 }
