@@ -14,6 +14,9 @@ export default class Customer {
         this.validate();
     }
 
+    get id(): string {
+        return this._id;
+    }
 
     get name() {    
         return this._name;
@@ -21,6 +24,10 @@ export default class Customer {
 
     set address(address: Address) {
         this._address = address;
+    }
+
+    get rewardPoints(): number {
+        return this._rewardPoints;
     }
 
     isActive(): boolean {
