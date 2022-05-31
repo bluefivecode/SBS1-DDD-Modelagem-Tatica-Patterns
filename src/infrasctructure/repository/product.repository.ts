@@ -1,6 +1,6 @@
 import ProductRepositoryInterface from "../../domain/repository/ product-repository.interface";
 import Product from "../../domain/entity/product";
-import ProductModel from "../db/sequelize/model/ product.model";
+import ProductModel from "../db/sequelize/model/product.model";
 
 export default class ProductRepository implements ProductRepositoryInterface{
 
@@ -15,7 +15,15 @@ export default class ProductRepository implements ProductRepositoryInterface{
     }
 
     async update(entity: Product): Promise<void> {
-        throw new Error("Method not implemented.");
+
+        await ProductModel.update({
+            name: entity.name,
+            price: entity.price
+        }, {
+            where: {
+                id: entity.id
+            }
+        });
     }
     
     async find(id: string): Promise<Product> {
