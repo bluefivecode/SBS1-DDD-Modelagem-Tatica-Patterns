@@ -3,6 +3,8 @@ import Address from "../../domain/entity/address";
 import Customer from "../../domain/entity/customer";
 import CustomerModel from "../db/sequelize/model/customer.model";
 import CustomerRepository from "../repository/customer.repository";
+
+
 describe("Customer repository test", () => {
   let sequelize: Sequelize;
 
